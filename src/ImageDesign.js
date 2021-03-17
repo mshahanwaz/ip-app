@@ -4,13 +4,13 @@ import "./ImageDesign.css";
 import { useState } from "react";
 
 function ImageDesign() {
-  const [clicked, setClicked] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   async function loadingImage() {
     var image = await Image.load(document.getElementsByTagName("img")[0].src);
     var grey = image.grey();
     // console.log(grey);
-    setClicked(false);
+    setClicked(true);
     document.getElementsByTagName("img")[1].src = grey.toDataURL();
   }
 
@@ -24,7 +24,7 @@ function ImageDesign() {
       />
       <button onClick={() => loadingImage()}>Click</button>
       <img
-        className={`imageDesign__output ${clicked && "imageDesign__hide"}`}
+        className={`imageDesign__output ${!clicked && "imageDesign__hide"}`}
         alt="output"
         width="500px"
       />
