@@ -5,4 +5,4 @@ To run this app
 2. `npm start`
 
 To fetch any changes in repo
-> `git fetch`
+`git pull`
