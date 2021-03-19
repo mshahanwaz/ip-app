@@ -1,3 +1,67 @@
-.imageDesign__hide {
-    display: none;
+.imageDesign {
+  height: 100vh;
+  padding: 0 10vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.imageDesign__upload {
+  display: grid;
+  place-items: center;
+}
+
+#imageDesign__fileUpload {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+}
+
+.imageDesign__inputFile label {
+  display: inline-block;
+  border: 3px dashed;
+  padding: 10vw;
+  border-radius: 20px;
+  color: rgb(219, 219, 219);
+  cursor: pointer;
+}
+
+.imageDesign__image {
+  display: grid;
+  place-items: center;
+}
+
+.imageDesign__image img {
+  max-width: 30vw;
+  max-height: 30vw;
+  padding: 5px;
+  background: #7e00e6;
+  box-shadow: 9px 9px 18px #6900bf, -9px -9px 18px #9300ff;
+  transition: all 0.5s;
+}
+
+.imageDesign__image p {
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+@media screen and (max-width: 654px) {
+  .imageDesign {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 20px;
+  }
+  .imageDesign__options {
+    padding: 30px 0;
+  }
+  .imageDesign__inputFile label {
+    padding: 20vw;
+  }
+  .imageDesign__image img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .imageDesign__image {
+    row-gap: 15px;
+  }
 }
