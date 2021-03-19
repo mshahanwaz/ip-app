@@ -44,6 +44,19 @@ function ImageOptions(props) {
               });
               props.onOutputChange(grey.toDataURL());
               break;
+              case "blur":
+                var image = await Image.load(props.source);
+                var grey = image.blurFilter({radius:5});
+                props.onOutputChange(grey.toDataURL());
+                break;
+                case "crop":
+                  var image = await Image.load(props.source);
+                  var grey = image.crop({x:20,
+                    y:10,
+                    width:600,
+                    height:220});
+                  props.onOutputChange(grey.toDataURL());
+                  break;
         
       default:
     }
@@ -53,7 +66,7 @@ function ImageOptions(props) {
   const newLocal = 0;
   return (
     <div className="imageOptions">
-      <button onClick={handleChange()}>Grey</button>
+      <button onClick={handleChange}>Grey</button>
       
     </div>
   );
