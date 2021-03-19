@@ -4,62 +4,73 @@ import Image from "image-js";
 function ImageOptions(props) {
   
   const handleChange = async () => {
-    var property = "grey";
+    var property = "cyan";
+    var grey;
+    var image;
     switch(property) {
       case "grey":
-        var image = await Image.load(props.source);
-        var grey = image.grey();
+        image = await Image.load(props.source);
+        grey = image.grey();
         props.onOutputChange(grey.toDataURL());
         break;
         case "rotate":
-        var image = await Image.load(props.source);
-        var grey = image.rotate(60);
+        image = await Image.load(props.source);
+        grey = image.rotate(60);
         props.onOutputChange(grey.toDataURL());
         break;
         case "flipX":
-        var image = await Image.load(props.source);
-        var grey = image.flipX();
+        image = await Image.load(props.source);
+        grey = image.flipX();
         props.onOutputChange(grey.toDataURL());
         break;
         case "flipY":
-          var image = await Image.load(props.source);
-          var grey = image.flipY();
+        image = await Image.load(props.source);
+        grey = image.flipY();
           props.onOutputChange(grey.toDataURL());
           break;
           case "resize":
-            var image = await Image.load(props.source);
-            var grey = image.resize({width:200,
+          image = await Image.load(props.source);
+          grey = image.resize({width:200,
               height:200});
             props.onOutputChange(grey.toDataURL());
             break;
             case "invert":
-            var image = await Image.load(props.source);
-            var grey = image.invert();
+            image = await Image.load(props.source);
+            grey = image.invert();
             props.onOutputChange(grey.toDataURL());
             break;
             case "bandw":
-              var image = await Image.load(props.source);
-              var grey = image.grey({
+            image = await Image.load(props.source);
+            grey = image.grey({
                 algorithm:'lightness'
               });
               props.onOutputChange(grey.toDataURL());
               break;
               case "blur":
-                var image = await Image.load(props.source);
-                var grey = image.blurFilter({radius:5});
+              image = await Image.load(props.source);
+              grey = image.blurFilter({radius:5});
                 props.onOutputChange(grey.toDataURL());
                 break;
                 case "crop":
-                  var image = await Image.load(props.source);
-                  var grey = image.crop({x:20,
+                image = await Image.load(props.source);
+                grey = image.crop({x:20,
                     y:10,
                     width:600,
                     height:220});
                   props.onOutputChange(grey.toDataURL());
                   break;
+                  case "cyan":
+                  image = await Image.load(props.source);
+                  grey = image.grey({
+                      algorithm:'cyan'
+                    });
+                    props.onOutputChange(grey.toDataURL());
+                    break;
         
       default:
     }
+
+  
    
   };
 
