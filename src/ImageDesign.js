@@ -2,7 +2,6 @@ import React from "react";
 import "./ImageDesign.css";
 import { useState } from "react";
 import ImageOptions from "./ImageOptions";
-import bgimg from "./bgimg.png";
 
 function ImageDesign() {
   const [clicked, setClicked] = useState(false);
