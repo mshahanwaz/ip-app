@@ -16,15 +16,45 @@ function ImageOptions(props) {
         var grey = image.rotate(60);
         props.onOutputChange(grey.toDataURL());
         break;
+        case "flipX":
+        var image = await Image.load(props.source);
+        var grey = image.flipX();
+        props.onOutputChange(grey.toDataURL());
+        break;
+        case "flipY":
+          var image = await Image.load(props.source);
+          var grey = image.flipY();
+          props.onOutputChange(grey.toDataURL());
+          break;
+          case "resize":
+            var image = await Image.load(props.source);
+            var grey = image.resize({width:200,
+              height:200});
+            props.onOutputChange(grey.toDataURL());
+            break;
+            case "invert":
+            var image = await Image.load(props.source);
+            var grey = image.invert();
+            props.onOutputChange(grey.toDataURL());
+            break;
+            case "bandw":
+              var image = await Image.load(props.source);
+              var grey = image.grey({
+                algorithm:'lightness'
+              });
+              props.onOutputChange(grey.toDataURL());
+              break;
+        
       default:
     }
    
   };
 
+  const newLocal = 0;
   return (
     <div className="imageOptions">
-      <button onClick={handleChange}>Grey</button>
-      {/* <button onClick={handleChange_grey}>Rotate</button> */}
+      <button onClick={handleChange()}>Grey</button>
+      
     </div>
   );
 }
